@@ -6,10 +6,17 @@ body {
 
 h1 {
   margin: 0 auto;
-  font-family: 'Abril Fatface', cursive;
+  font-family: 'Special Elite', cursive;
   font-size: 48px;
   margin: 2%;
   font-weight: 30;
+  color: #1F3E32
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: lighter;
+  margin: 2%;
   color: #255440
 }
 
@@ -18,13 +25,11 @@ h1 {
   background-color: #255440;
   color: #DDC8A9;
   padding: 2px 6px 2px 6px;
-  border-top: 1px solid #255440;
-  border-right: 1px solid white;
-  border-bottom: 1px solid white;
-  border-left: 1px solid #255440;
+  border: 1px solid #255440;
   font-family: "Playfair Display", serif;
   font-size: 17px;
   margin: 10px;
+  border-radius: 10px;
 }
 
 h2 {
@@ -32,7 +37,7 @@ h2 {
   font-family: 'Abril Fatface', cursive;
   font-size: 42px;
   margin: 2%;
-  font-weight: 30;
+  font-weight: lighter;
   color: #255440
 }
 

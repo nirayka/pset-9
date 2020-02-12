@@ -18,10 +18,11 @@ let win;
 let xWins = 0;
 let oWins = 0;
 let firstPlayer;
+let turnCount;
 
 ///////////////////// CACHED ELEMENT REFERENCES /////////////////////
 const squares = Array.from(document.querySelectorAll("#board div"));
-const message = document.querySelector("h2");
+const message = document.getElementById("turnHeader");
 
 ///////////////////// EVENT LISTENERS ///////////////////////////////
 window.onload = init;
@@ -98,11 +99,16 @@ function getWinner() {
 }
 
 function xStarts() {
-  turn_counter = 1
+  turn = "x"
   console.log("1")
 }
 
-function oStars() {
-  turn_counter = 0
+function oStarts() {
+  turn = "o"
   console.log("0")
 }
+
+
+
+
+// turn is only showing up on the tic tac toe part !!!
