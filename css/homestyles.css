@@ -1,0 +1,126 @@
+.button {
+  text-decoration: none;
+  background-color: #255440;
+  color: #DDC8A9;
+  padding: 2px 6px 2px 6px;
+  border-top: 1px solid #255440;
+  border-right: 1px solid white;
+  border-bottom: 1px solid white;
+  border-left: 1px solid #255440;
+  font-family: "Playfair Display", serif;
+  font-size: 17px;
+  margin: 10px;
+}
+
+body {
+  text-align: center;
+  font-family: "Playfair Display", serif;
+  background-color: #DDC8A9
+}
+
+h1 {
+  margin: 0 auto;
+  font-family: 'Abril Fatface', cursive;
+  font-size: 48px;
+  margin: 2%;
+  font-weight: 30;
+  color: #255440
+}
+
+
+h2 {
+  font-size: 24px;
+  font-weight: lighter;
+  margin: 2%;
+  color: #366147
+}
+
+.homebutton {
+  text-decoration: none;
+  background-color: #255440;
+  color: #DDC8A9;
+  padding: 2px 6px 2px 6px;
+  border-top: 1px solid #255440;
+  border-right: 1px solid white;
+  border-bottom: 1px solid white;
+  border-left: 1px solid #255440;
+  font-family: "Playfair Display", serif;
+  font-size: 25px;
+  margin: 35px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.column {
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+}
+
+
+.wrap {
+  flex-wrap: wrap;
+  height: 456px;
+  width: 456px;
+}
+
+
+.square {
+  border: 1px solid;
+  border-color: #082828;
+  font-size: 96px;
+  height: 150px;
+  line-height: 150px;
+  user-select: none;
+  width: 150px;
+}
+
+
+.square:hover {
+  background-color: #366147;
+  cursor: pointer;
+}
+
+#reset-button {
+  background-color: #DDC8A9;
+  border: 1px solid #366147;
+  color: #366147;
+  font-size: 21px;
+  line-height: 55px;
+  margin: 1%;
+  text-align: center;
+  width: 456px;
+}
+
+
+#reset-button:hover {
+  background-color: #366147;
+  color: #DDC8A9;
+  cursor: pointer;
+}
+
+table {
+  display: inline-block;
+  border-radius: 15px;
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+table, th, td {
+
+}
+
+th, td {
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 7px;
+  padding-bottom: 7px;
+  font-size: 20px;
+  color: #366147
+}
