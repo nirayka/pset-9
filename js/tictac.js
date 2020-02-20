@@ -107,8 +107,3 @@ function oStarts() {
   turn = "o"
   console.log("0")
 }
-
-
-
-
-// turn is only showing up on the tic tac toe part !!!
