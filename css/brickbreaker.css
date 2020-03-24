@@ -41,14 +41,11 @@ h3 {
   border-radius: 10px;
 }
 
-
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 50px;
 }
-
 
 .column {
   height: 100%;
@@ -56,57 +53,30 @@ h3 {
   flex-direction: column;
 }
 
-
 .wrap {
   flex-wrap: wrap;
-  width: 650px;
-  height: 480px;
+  height: 456px;
+  width: 456px;
 }
-
 
 .square {
-  border: 1px solid;
-  border-color: #082828;
-  font-size: 130px;
-  height: 80px;
-  line-height: 80px;
+  border: 1px solid rgba(0, 0, 0, 0.75);
+  font-size: 96px;
+  height: 150px;
+  line-height: 150px;
   user-select: none;
-  width: 80px;
-  border-radius: 50%;
-  margin: 3px;
-  float: center;
+  width: 150px;
 }
-
 
 .square:hover {
-  background-color: #9F8A6F;
-  cursor: pointer;
-}
-
-.turnButton {
-  background-color: #DDC8A9;
-  border: 1px solid #366147;
-  color: #366147;
-  font-size: 15px;
-  line-height: 30px;
-  margin: 1%;
-  text-align: center;
-  width: 200px;
-  font-family: 'Abril Fatface';
-  font-weight: lighter;
-  border-radius: 50px;
-}
-
-.turnButton:hover {
-  background-color: #366147;
-  color: #DDC8A9;
+  background-color: white;
   cursor: pointer;
 }
 
 #reset-button {
-  background-color: #DDC8A9;
-  border: 1px solid #366147;
-  color: #366147;
+  background-color: white;
+  border: 1px solid black;
+  color: black;
   font-size: 21px;
   line-height: 55px;
   margin: 1%;
@@ -114,29 +84,39 @@ h3 {
   width: 456px;
 }
 
-
 #reset-button:hover {
-  background-color: #366147;
-  color: #DDC8A9;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+
+#score {
+  text-align: center;
+  font-size: 21px;
+}
+
+#mode-button {
+  background-color: white;
+  border: 1px solid black;
+  color: black;
+  font-size: 21px;
+  line-height: 55px;
+  margin: 1%;
+  text-align: center;
+  width: 456px;
+}
+
+#mode-button:hover {
+  background-color: black;
+  color: white;
   cursor: pointer;
 }
 
 table {
-  display: inline-block;
-  border-radius: 15px;
-  border: 1px solid black;
-  border-collapse: collapse;
-}
-
-table, th, td {
-
-}
-
-th, td {
-  padding-left: 15px;
-  padding-right: 15px;
-  padding-bottom: 7px;
-  padding-bottom: 7px;
-  font-size: 20px;
-  color: #366147
+  border: 2px solid;
+  margin-top: 60px;
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
 }
