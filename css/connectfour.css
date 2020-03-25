@@ -4,6 +4,84 @@ body {
   background-color: #DDC8A9
 }
 
+#game,body {
+    margin: 40px auto 0 auto;
+    background-image: url("../images/back4.gif");
+    background-size: contain;
+}
+
+td {
+background-color: white;
+}
+
+#game,#gameboard {
+    width:620px;
+}
+
+#gameboard,.leg {
+    background:#00f;
+}
+
+#gameboard,.leg,#gameboard td,#r {
+    border:2px solid black;
+}
+
+#gameboard td {
+    width:76px;
+    height:76px;
+    border-radius:38px;
+}
+
+#gameboard {
+    padding:10px;
+    border-spacing:4px;
+    border-bottom-width:0;
+    border-radius:12px 12px 0 0;
+    background-color: #1F4A38;
+    color: #1F4A38;
+}
+
+#gameboard .blue {
+    background:#325F65;
+}
+
+#gameboard .brown {
+    background:#322020;
+}
+
+#r,#gameboard td {
+    border-color:#333;
+}
+
+
+.left {
+    float:left;
+}
+
+.right {
+    float:right;
+}
+
+.brown,.blue,#gameboard,.leg {
+    box-shadow: inset 0 0 20px rgba(100,100,100,0.6);
+}
+
+#n,#w,#a,#b {
+    display:none;
+}
+
+h3 {
+  border: 10px solid black;
+  background-color: black;
+  margin: 2%;
+
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
 h1 {
   margin: 0 auto;
   font-family: 'Special Elite', cursive;
@@ -39,104 +117,4 @@ h3 {
   font-size: 17px;
   margin: 10px;
   border-radius: 10px;
-}
-
-
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 50px;
-}
-
-
-.column {
-  height: 100%;
-  width: 100%;
-  flex-direction: column;
-}
-
-
-.wrap {
-  flex-wrap: wrap;
-  width: 650px;
-  height: 480px;
-}
-
-
-.square {
-  border: 1px solid;
-  border-color: #082828;
-  font-size: 130px;
-  height: 80px;
-  line-height: 80px;
-  user-select: none;
-  width: 80px;
-  border-radius: 50%;
-  margin: 3px;
-  float: center;
-}
-
-
-.square:hover {
-  background-color: #9F8A6F;
-  cursor: pointer;
-}
-
-.turnButton {
-  background-color: #DDC8A9;
-  border: 1px solid #366147;
-  color: #366147;
-  font-size: 15px;
-  line-height: 30px;
-  margin: 1%;
-  text-align: center;
-  width: 200px;
-  font-family: 'Abril Fatface';
-  font-weight: lighter;
-  border-radius: 50px;
-}
-
-.turnButton:hover {
-  background-color: #366147;
-  color: #DDC8A9;
-  cursor: pointer;
-}
-
-#reset-button {
-  background-color: #DDC8A9;
-  border: 1px solid #366147;
-  color: #366147;
-  font-size: 21px;
-  line-height: 55px;
-  margin: 1%;
-  text-align: center;
-  width: 456px;
-}
-
-
-#reset-button:hover {
-  background-color: #366147;
-  color: #DDC8A9;
-  cursor: pointer;
-}
-
-table {
-  display: inline-block;
-  border-radius: 15px;
-  border: 1px solid black;
-  border-collapse: collapse;
-}
-
-table, th, td {
-
-}
-
-th, td {
-  padding-left: 15px;
-  padding-right: 15px;
-  padding-bottom: 7px;
-  padding-bottom: 7px;
-  font-size: 20px;
-  color: #366147
 }

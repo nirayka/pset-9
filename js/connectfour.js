@@ -1,112 +1,94 @@
-///////////////////// CONSTANTS /////////////////////////////////////
-const winningConditions = [
-  [0, 1, 2],
-  [3, 4, 5],
-  [6, 7, 8],
-  [0, 3, 6],
-  [1, 4, 7],
-  [2, 5, 8],
-  [0, 4, 8],
-  [2, 4, 6]
-];
+(function(doc){
+    var
+    start = function(){
+        finished = false;
+        changePlayer();
+    },
+    newGame = function(message){
+        if (confirm(message)){
+            start();
+            forAllCells(emptyField);
+        }
+    },
+    element = function(id){
+        return doc.getElementById(id);
+    },
+    value = function(el){
+        return element(el).innerHTML;
+    },
+    cell = function(i,j){
+        return element("c-"+i+"-"+j);
+    },
+    forAllCells = function(action){
+        for (var t = 1;t<7;t++){
+            for (var counter2 = 1;counter2<8;counter2++){
+                action(t,counter2);
+            }
+        }
+    },
+    sameColor = function(i,j){
+        return testClass(i,j,players[current]);
+    },
+    changePlayer = function(){
+        element("c").innerHTML = players[current = (current + 1) % 2];
+    },
+    horizontalWon = function(i,j){
+        for(var min=j-1;min>0;min--)if(!sameColor(i,min))break;
+        for(var max=j+1;max<8;max++)if(!sameColor(i,max))break;
+        return max-min>4;
+    },
 
-
-///////////////////// APP STATE (VARIABLES) /////////////////////////
-let board;
-let turn;
-let win;
-let xWins = 0;
-let oWins = 0;
-let firstPlayer;
-let turnCount;
-
-///////////////////// CACHED ELEMENT REFERENCES /////////////////////
-const squares = Array.from(document.querySelectorAll("#board div"));
-const message = document.getElementById("turnHeader");
-
-///////////////////// EVENT LISTENERS ///////////////////////////////
-window.onload = init;
-document.getElementById("board").onclick = takeTurn;
-document.getElementById("reset-button").onclick = init;
-document.getElementById("x_turn").onclick = xStarts;
-document.getElementById("o_turn").onclick = oStarts;
-
-///////////////////// FUNCTIONS /////////////////////////////////////
-
-function init() {
-  board = [
-    "", "", "", "", "", "", "",
-    "", "", "", "", "", "", "",
-    "", "", "", "", "", "", "",
-    "", "", "", "", "", "", "",
-    "", "", "", "", "", "", "",
-    "", "", "", "", "", "", "",
-  ]
-  turn = "x"
-  win = null;
-    if (turnCount == 1) {
-    turn = "blue"
-  }
-  else if (turnCount == 0) {
-    turn = "green"
-  }
-  render();
-}
-
-function render() {
-  board.forEach(function(mark, index) {
-    squares[index].textContent = mark;
-  })
-    message.textContent =
-    win === "T" ? "it's a tie!" : win ? `${win} wins!` : `turn: ${turn}`;
-    squares[2].innerHTML = "●" // just put this in to see what it would look like :(
-
-}
-
-// this doesn't work at all. figure out how to at least mark the board please !!!!
-
-function takeTurn(e) {
-  if (!win) {
-    let index = squares.findIndex(function(square) {
-      return square === e.target;
-    });
-
-    if (board[index] === "") {
-      board[index] = turn;
-      turn = turn === blue ? green : blue;
-      win = getWinner();
-      render();
-    }
-  }
-}
-
-function getWinner() {
-  let winner = null;
-
-  winningConditions.forEach(function(condition, index) {
-    if (
-      board[condition[0]] &&
-      board[condition[0]] === board[condition[1]] &&
-      board[condition[1]] === board[condition[2]]
-    ) {
-      winner = board[condition[0]];
-      if (winner == "blue") {
-        xWins++
-        xCounter.innerHTML = xWins
-      } else if (winner == "green") {
-        oWins++
-        oCounter.innerHTML = oWins
-      }
-    }
-  });
-
-  return winner ? winner : board.includes("") ? null : "T";
-}
-
-function blueStarts() {
-  turn = "blue"
-}
-
-function greenStarts() {
-  turn = "green"
-}
+    verticalWon = function(i,j){
+        for(var max=i+1;max<7;max++)if(!sameColor(max,j))break;
+        return max-i>3;
+    },
+    diagonalLtrWon = function(i,j){
+        for(var min=i-1,t=j-1;min>0;min--,t--)if(t<1||!sameColor(min,t))break;
+        for(var max=i+1,t=j+1;max<7;max++,t++)if(t>7||!sameColor(max,t))break;
+        return max-min>4;
+    },
+    diagonalRtlWon = function(i,j){
+        for(var min=i-1,t=j+1;min>0;min--,t++)if(t>7||!sameColor(min,t))break;
+        for(var max=i+1,t=j-1;max<7;max++,t--)if(t<1||!sameColor(max,t))break;
+        return max-min>4;
+    },
+    colorField = function(i,j,color){
+        cell(i,j).className = color;
+    },
+    emptyField = function(i,j){
+        colorField(i,j,'');
+    },
+    testClass = function(i,j,value){
+        return cell(i,j).className == value;
+    },
+    addCellBehavior = function(i,j){
+        cell(i,j).onclick = function(j){
+            return function(){
+                if(!finished){
+                    for (var t = 6;t>0;t--){
+                        if(testClass(t,j,'')){
+                            colorField(t,j,players[current]);
+                            if(horizontalWon(t,j) || verticalWon(t,j) || diagonalLtrWon(t,j) || diagonalRtlWon(t,j)){
+                                finished = true;
+                                newGame(wonMessage.replace("%s",players[current]));
+                            } else {
+                                changePlayer();
+                            }
+                            break;
+                        }
+                    }
+                }
+            }
+        }(j);
+    },
+    players = [value("a"),value("b")],
+    current = 0,
+    newGameMessage = value("n"),
+    wonMessage = value("w"),
+    finished;
+    start();
+    forAllCells(addCellBehavior);
+    element("r").onclick = function(){
+        newGame(newGameMessage)
+    };
+})(document);
