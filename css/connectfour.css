@@ -6,7 +6,7 @@ body {
 
 #game,body {
     margin: 40px auto 0 auto;
-    background-image: url("../images/back4.gif");
+    background-color: #DDC8A9;
     background-size: contain;
 }
 
